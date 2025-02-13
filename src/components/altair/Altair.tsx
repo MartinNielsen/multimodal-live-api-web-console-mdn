@@ -19,203 +19,204 @@ import vegaEmbed from "vega-embed";
 import { useLiveAPIContext } from "../../contexts/LiveAPIContext";
 import { ToolCall } from "../../multimodal-live-types";
 
+// Updated metadata with Swedish translations
 const metadata = {
   "colors": {
-    "1": "Aqua",
-    "2": "Azure",
+    "1": "Akva",
+    "2": "Azur",
     "3": "Beige",
-    "4": "Black",
-    "5": "Blue",
-    "6": "Bronze",
-    "7": "Brown",
-    "8": "Burgundy",
-    "9": "Chocolate",
-    "10": "Cream",
-    "11": "Crimson",
-    "12": "Coral",
+    "4": "Svart",
+    "5": "Blå",
+    "6": "Brons",
+    "7": "Brun",
+    "8": "Bourgogne",
+    "9": "Choklad",
+    "10": "Grädde",
+    "11": "Karmosin",
+    "12": "Korall",
     "13": "Cyan",
-    "14": "Dark blue",
-    "15": "Dark red",
-    "16": "Golden",
-    "17": "Gray",
-    "18": "Green",
+    "14": "Mörkblå",
+    "15": "Mörkröd",
+    "16": "Gylden",
+    "17": "Grå",
+    "18": "Grön",
     "19": "Khaki",
-    "20": "Light blue",
-    "21": "Light green",
+    "20": "Ljusblå",
+    "21": "Ljusgrön",
     "22": "Lime",
     "23": "Maroon",
     "24": "Mint",
-    "25": "Mustard",
-    "26": "Navy",
-    "27": "Olive",
+    "25": "Senap",
+    "26": "Marinblå",
+    "27": "Oliv",
     "28": "Orange",
-    "29": "Orchid",
-    "30": "Pink",
-    "31": "Purple",
-    "32": "Red",
-    "33": "Salmon",
+    "29": "Orkidé",
+    "30": "Rosa",
+    "31": "Lila",
+    "32": "Röd",
+    "33": "Laxrosa",
     "34": "Silver",
-    "35": "Spring green",
-    "36": "Teal",
-    "37": "Turquoise",
-    "38": "Violet",
-    "39": "Wheat",
-    "40": "White",
-    "41": "Yellow"
+    "35": "Vårgrön",
+    "36": "Blågrön",
+    "37": "Turkos",
+    "38": "Violon",
+    "39": "Vetefärgad",
+    "40": "Vit",
+    "41": "Gul"
   },
   "categories": {
-    "1": "Clothing",
-    "2": "Shoes",
-    "3": "Bags",
-    "4": "Accessories",
-    "5": "Ball gown",
-    "6": "Belt",
-    "7": "Blouse",
-    "8": "Caftan",
+    "1": "Kläder",
+    "2": "Skor",
+    "3": "Väskor",
+    "4": "Accessoarer",
+    "5": "Aftonklänning",
+    "6": "Bälte",
+    "7": "Blus",
+    "8": "Kaftan",
     "9": "Cardigan",
-    "10": "Coat",
-    "11": "Dress",
-    "12": "Hoodie",
+    "10": "Kappa",
+    "11": "Klänning",
+    "12": "Huvtröja",
     "13": "Jeans",
-    "14": "Jumpsuit",
-    "15": "Knitwear",
-    "16": "Leather jacket",
-    "17": "Lingerie",
-    "18": "Shirt",
+    "14": "Overall",
+    "15": "Stickat",
+    "16": "Läderjacka",
+    "17": "Underkläder",
+    "18": "Skjorta",
     "19": "Shorts",
-    "20": "Skirt",
-    "21": "Suit",
-    "22": "Sweater",
-    "23": "Swimwear",
-    "24": "Top",
+    "20": "Kjol",
+    "21": "Kostym",
+    "22": "Tröja",
+    "23": "Badkläder",
+    "24": "Topp",
     "25": "Trenchcoat",
-    "26": "Trousers",
+    "26": "Byxor",
     "27": "T-shirt",
-    "28": "Vest",
-    "29": "Ankle boots",
-    "30": "Ballet flats",
-    "31": "Boots",
-    "32": "Clogs",
-    "33": "Espadrilles",
-    "34": "Flats",
+    "28": "Väst",
+    "29": "Ankelstövlar",
+    "30": "Balettskor",
+    "31": "Stövlar",
+    "32": "Träskor",
+    "33": "Espadriller",
+    "34": "Platta skor",
     "35": "Flip-flops",
-    "36": "High heels",
-    "37": "Heels",
-    "38": "Mid heels",
+    "36": "Höga klackar",
+    "37": "Klackar",
+    "38": "Mellanklackar",
     "39": "Mules",
-    "40": "Sandals",
-    "41": "Shoes (general)",
-    "42": "Slippers",
+    "40": "Sandaler",
+    "41": "Skor (allmänt)",
+    "42": "Tofflor",
     "43": "Sneakers",
-    "44": "Trainers",
-    "45": "Backpack",
-    "46": "Belt bag",
-    "47": "Clutch",
-    "48": "Crossbody bag",
-    "49": "Handbag",
-    "50": "Purse",
-    "51": "Satchel",
-    "52": "Shoulder bag",
-    "53": "Suitcase",
-    "54": "Tote bag",
-    "55": "Bag (other)",
-    "56": "Cap",
-    "57": "Gloves",
-    "58": "Handkerchief",
-    "59": "Hat",
-    "60": "Scarf",
-    "61": "Sunglasses",
-    "62": "Wallet",
-    "63": "Watch",
-    "64": "Accessory (other)"
+    "44": "Träningsskor",
+    "45": "Ryggsäck",
+    "46": "Bältesväska",
+    "47": "Aftonväska",
+    "48": "Axelremsväska",
+    "49": "Handväska",
+    "50": "Plånbok",
+    "51": "Skolväska",
+    "52": "Skulderväska",
+    "53": "Resväska",
+    "54": "Shoppingväska",
+    "55": "Väska (övrig)",
+    "56": "Keps",
+    "57": "Handskar",
+    "58": "Näsdukar",
+    "59": "Hatt",
+    "60": "Halsduk",
+    "61": "Solglasögon",
+    "62": "Plånbok",
+    "63": "Klocka",
+    "64": "Accessoar (övrig)"
   },
   "condition": {
-    "1": "Never worn, with tag",
-    "2": "Never worn",
-    "3": "Very good",
-    "4": "Good",
-    "5": "Fair"
+    "1": "Aldrig använd, med märke",
+    "2": "Aldrig använd",
+    "3": "Mycket bra",
+    "4": "Bra",
+    "5": "Rättvis"
   },
   "pattern": {
-    "1": "No pattern",
-    "2": "Abstract",
-    "3": "Abstract watercolour",
-    "4": "Animal print",
+    "1": "Inget mönster",
+    "2": "Abstrakt",
+    "3": "Abstrakt akvarell",
+    "4": "Djurtryck",
     "5": "Argyle",
-    "6": "Camouflage",
-    "7": "Checkered/Plaid",
+    "6": "Kamouflage",
+    "7": "Rutig",
     "8": "Chevron",
     "9": "Damask",
-    "10": "Floral",
-    "11": "Galaxy print",
-    "12": "Geometric",
+    "10": "Blommig",
+    "11": "Galaxtryck",
+    "12": "Geometrisk",
     "13": "Gingham",
-    "14": "Herringbone",
-    "15": "Houndstooth",
+    "14": "Fiskbensmönster",
+    "15": "Hundtand",
     "16": "Ikat",
-    "17": "Mosaic",
+    "17": "Mosaik",
     "18": "Ombre",
     "19": "Paisley",
-    "20": "Polka dots",
+    "20": "Prickar",
     "21": "Seersucker",
-    "22": "Stripes",
+    "22": "Ränder",
     "23": "Tartan",
     "24": "Tie-dye",
     "25": "Toile de Jouy",
     "26": "Tribal"
   },
   "material": {
-    "1": "Acrylic",
-    "2": "Alpaca",
-    "3": "Bamboo",
+    "1": "Akryl",
+    "2": "Alpacka",
+    "3": "Bambu",
     "4": "Canvas",
-    "5": "Cardboard",
-    "6": "Cashmere",
-    "7": "Ceramic",
-    "8": "Chiffon",
-    "9": "Corduroy",
-    "10": "Cotton",
+    "5": "Kartong",
+    "6": "Kashmir",
+    "7": "Keramik",
+    "8": "Chiffong",
+    "9": "Manchestertyg",
+    "10": "Bomull",
     "11": "Denim",
-    "12": "Down",
-    "13": "Elastane",
-    "14": "Faux fur",
-    "15": "Faux leather",
-    "16": "Flannel",
+    "12": "Dun",
+    "13": "Elastan",
+    "14": "Fuskpäls",
+    "15": "Konstläder",
+    "16": "Flanell",
     "17": "Fleece",
-    "18": "Foam",
-    "19": "Fur",
-    "20": "Glass",
-    "21": "Gold",
+    "18": "Skum",
+    "19": "Päls",
+    "20": "Glas",
+    "21": "Guld",
     "22": "Jute",
-    "23": "Lace",
+    "23": "Spets",
     "24": "Latex",
-    "25": "Leather",
-    "26": "Linen",
+    "25": "Läder",
+    "26": "Linne",
     "27": "Merino",
     "28": "Mesh",
-    "29": "Metal",
+    "29": "Metall",
     "30": "Mohair",
-    "31": "Neoprene",
+    "31": "Neopren",
     "32": "Nylon",
-    "33": "Paper",
-    "34": "Plastic",
+    "33": "Papper",
+    "34": "Plast",
     "35": "Polyester",
-    "36": "Porcelain",
-    "37": "Rubber",
+    "36": "Porslin",
+    "37": "Gummi",
     "38": "Satin",
-    "39": "Sequin",
-    "40": "Silicone",
-    "41": "Silk",
+    "39": "Paljett",
+    "40": "Silikon",
+    "41": "Siden",
     "42": "Silver",
-    "43": "Steel",
-    "44": "Stone",
-    "45": "Straw",
+    "43": "Stål",
+    "44": "Sten",
+    "45": "Halm",
     "46": "Tweed",
     "47": "Velour",
-    "48": "Velvet",
-    "49": "Viscose",
-    "50": "Wood",
-    "51": "Wool"
+    "48": "Sammet",
+    "49": "Viskos",
+    "50": "Trä",
+    "51": "Ull"
   }
 };
 
@@ -375,51 +376,51 @@ function AltairComponent() {
 const systemInstruction = {
   parts: [
     {
-      text: `You are my helpful assistant for a multimodal AI voice and video chat session whose sole purpose is to classify a clothing product.
+      text: `Du är min hjälpsamma assistent för en multimodal AI-röst- och videochatt-session vars enda syfte är att klassificera en klädprodukt.
 
-Use Case:
-- A user is classifying a specific product by providing photos, a live video stream, and voice input (in Swedish; however, you should always reply in English).
-- The product has several properties that need to be identified and updated in a textual UI. When you determine or update a property, call the appropriate function to update the UI.
-- Properties to classify:
-  - Brand
-  - Category (allowed: ${allowedCategories})
-  - Color (allowed: ${allowedColors})
-  - Condition (allowed: ${allowedCondition})
-  - Material (allowed: ${allowedMaterial})
-  - Pattern (allowed: ${allowedPattern})
-  - Size
+Användningsfall:
+- En användare klassificerar en specifik produkt genom att tillhandahålla foton, en livevideoström och röstinmatning (på svenska; dock ska du alltid svara på engelska).
+- Produkten har flera egenskaper som måste identifieras och uppdateras i ett textuellt användargränssnitt. När du bestämmer eller uppdaterar en egenskap, ring den lämpliga funktionen för att uppdatera användargränssnittet.
+- Egenskaper att klassificera:
+  - Märke
+  - Kategori (tillåtet: ${allowedCategories})
+  - Färg (tillåtet: ${allowedColors})
+  - Skick (tillåtet: ${allowedCondition})
+  - Material (tillåtet: ${allowedMaterial})
+  - Mönster (tillåtet: ${allowedPattern})
+  - Storlek
 
-Key Instructions:
-- Use only the allowed values specified above for their corresponding properties.
-- Automatic Classification Start:
-  - Begin the classification process as soon as you receive video or images—even if there has been no voice command to start.
-- Input Prioritization:
-  - If the user provides property details via voice, these values override any values previously identified from photos or video.
-- Voice Responses:
-  - Respond in English only.
-  - Only provide voice responses when:
-    - You are asked a direct question,
-    - You need to ask a clarifying question, or
-    - You need to provide a status update.
-- Do not provide voice feedback on every image or video frame.
-- Do not mention or summarize properties that are already registered unless the user explicitly asks for them.
-- Handling Multiple Items and Images:
-  - If an image contains multiple items, focus on the main garment.
-  - The same item may appear in multiple images; treat them as belonging to the same product.
-- Managing Missing Properties:
-  - Avoid prompting the user about missing properties too early.
-  - Allow the user to work through the classification, and only when the user indicates that they are finished (or seems ready) should you ask for any remaining property value one by one.
-- Completion:
-  - When the user signals that the classification is complete, call the complete_product_classification function to finalize the process.
-- Clarifications:
-  - If you are unsure about any details or need more information, feel free to ask the user clarifying questions.
+Viktiga instruktioner:
+- Använd endast de tillåtna värdena som anges ovan för deras motsvarande egenskaper.
+- Automatisk klassificeringsstart:
+  - Börja klassificeringsprocessen så snart du får video eller bilder – även om det inte har funnits någon röstkommando att starta.
+- Inmatningsprioritering:
+  - Om användaren tillhandahåller egenskapsdetaljer via röst, åsidosätter dessa värden alla värden som tidigare identifierats från foton eller video.
+- Röstrespons:
+  - Svara endast på engelska.
+  - Ge endast röstrespons när:
+    - Du får en direkt fråga,
+    - Du behöver ställa en förtydligande fråga, eller
+    - Du behöver ge en statusuppdatering.
+- Ge inte röstfeedback på varje bild eller videoruta.
+- Nämn eller sammanfatta inte egenskaper som redan är registrerade om inte användaren uttryckligen ber om dem.
+- Hantering av flera objekt och bilder:
+  - Om en bild innehåller flera objekt, fokusera på huvudplagget.
+  - Samma objekt kan visas i flera bilder; behandla dem som tillhörande samma produkt.
+- Hantering av saknade egenskaper:
+  - Undvik att fråga användaren om saknade egenskaper för tidigt.
+  - Låt användaren arbeta igenom klassificeringen, och först när användaren indikerar att de är klara (eller verkar redo) bör du fråga efter eventuella återstående egenskapsvärden en efter en.
+- Slutförande:
+  - När användaren signalerar att klassificeringen är klar, ring funktionen complete_product_classification för att slutföra processen.
+- Förtydliganden:
+  - Om du är osäker på några detaljer eller behöver mer information, tveka inte att fråga användaren förtydligande frågor.
 
-Summary:
-- Start classifying as soon as visual data (video/images) is received.
-- Respond in English, even if the input is in Swedish.
-- Only speak when necessary (questions, status updates, or clarifications) and never reiterate already registered properties unless asked.
-- Update the UI immediately when a property is identified.
-- Complete the classification with the complete_product_classification function when done.`
+Sammanfattning:
+- Börja klassificera så snart visuell data (video/bilder) tas emot.
+- Svara på engelska, även om inmatningen är på svenska.
+- Tala endast när det är nödvändigt (frågor, statusuppdateringar eller förtydliganden) och upprepa aldrig redan registrerade egenskaper om inte ombedd.
+- Uppdatera användargränssnittet omedelbart när en egenskap identifieras.
+- Slutför klassificeringen med funktionen complete_product_classification när den är klar.`
     }
   ]
 };
