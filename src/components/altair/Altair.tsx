@@ -165,7 +165,15 @@ The properties are:
 
   useEffect(() => {
     const onToolCall = (toolCall: ToolCall) => {
-      console.log(`got toolcall`, toolCall);
+      //console.log(`got toolcall`, toolCall);
+      // Updated logging: concatenate function call arguments with commas.
+      toolCall.functionCalls.forEach(fc => {
+        const args = fc.args || {};
+        const argsString = Object.entries(args)
+          .map(([key, value]) => `${key}: ${value}`)
+          .join(", ");
+        console.log(`Function: ${fc.name}(${argsString})`);
+      });
       const fc = toolCall.functionCalls.find(
         (fc) => fc.name === declaration.name,
       );
